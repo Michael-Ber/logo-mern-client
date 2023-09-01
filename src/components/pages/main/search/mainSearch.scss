@@ -1,0 +1,128 @@
+@import '../../../../assets/variables';
+@import '../../../../assets/mixins';
+
+.slide__search {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; 
+    width: 100%;
+}
+
+.slide__label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.slide__everywhere {
+    @include roboto;
+    position: relative;
+    min-width: 116px;
+    height: 40px;
+    background-color: $button_bg;
+    border: none;
+    cursor: pointer;
+    @media(max-width: 575px) {
+        min-width: 85px;
+    }
+    span {
+        font-size: 14px;
+        font-weight: 300;
+        border-bottom: 1px dashed $fourteen-color;
+        color: $fourteen-color;
+        @media(max-width: 575px) {
+            font-size: 12px;
+        }
+    }
+    &::before {
+        content: url('../../../../assets/icons/main/search.png');
+        position: absolute;
+        top: 12px;
+        left: 14px;
+        @media(max-width: 575px) {
+            left: 5px;  
+        }
+    }
+    &::after {
+        content: url('../../../../assets/icons/main/arrow_search.png');
+        position: absolute;
+        top: 13px;
+        right: 16px;
+        @media(max-width: 575px) {
+            right: 10px;
+        }
+    }
+    &:hover {
+        background-color: darken($button_bg, 10%);
+    }
+}
+
+.slide__input {
+    width: 100%;
+    height: 40px;
+    border: 2px solid $border-color;
+    padding: 0 10px;
+}
+
+.slide__submit {
+    @include roboto;
+    min-width: 86px;
+    height: 40px;
+    background-color: $third-color;
+    border: none;
+    color: #ffffff;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    &:hover {
+        background-color: darken($third-color, 10%);
+    }
+    @media(max-width: 575px) {
+        min-width: 65px;
+    }
+}
+
+.search__popup {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    width: 100%;
+    height: 220px;
+    border: 1px solid $button_bg;
+    border-bottom: 4px solid $third-color;
+    background-color: #fff;
+    z-index: 100;
+    @media(max-width: 991px) {
+        height: 300px;
+    }
+    @media(max-width: 575px) {
+        height: unset;
+    }
+    &-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        height: 100%;
+        list-style-type: none;
+    }
+    &-link {
+        @include roboto;
+        font-size: 12px;
+        line-height: 36px;
+        font-weight: 300;
+        letter-spacing: 0.025em;
+        color: $sec-color;
+        text-decoration: none;
+        &_active, &:hover {
+            color: $third-color;
+        }
+    }
+}

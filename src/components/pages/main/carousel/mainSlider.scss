@@ -1,0 +1,174 @@
+@import '../../../../assets/variables';
+@import '../../../../assets/mixins';
+
+.main__slider-wrapper {
+    position: relative;
+    min-width: 100%;
+}
+
+.main__slide {
+    display: none;
+    &_active {
+        display: block;
+    }
+    
+    .slide__sale {
+        height: 383px;
+        background: url('../../../../assets/img/main/running_track.jpg') center center/contain no-repeat;
+        margin-top: 22px;
+        padding: 20px 36px 58px 36px;
+        @media(max-width: 1199px) {
+            background-size: cover;   
+        }
+        @media(max-width: 575px) {
+            padding: 20px 17px 58px 17px;   
+        }
+        .sale__descr {
+            margin-top: 53px;
+        }
+        .sale__cost {
+           @include roboto;
+            font-size: 36px;
+            line-height: 24px;
+            font-weight: 900;
+            color: #ffffff;
+            margin-top: 15px;
+            text-align: center;
+        }
+        .sale__detail {
+            @include roboto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 145px;
+            font-size: 14px;
+            line-height: 13px;
+            font-weight: 900;
+            margin: 25px auto 0 auto;
+            padding: 7px 11px 6px 22px;
+            text-transform: uppercase;
+            color: #ffffff;
+            text-decoration: none;
+            border: 3px solid #ffffff;
+            border-radius: 25px;
+            transition: .2s all;
+            img {
+                margin-left: 10px;
+            }
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        &-title {
+            @media(max-width: 991px) {
+                font-size: 35px;
+            }
+        }
+        .title {
+            @include roboto;
+            text-transform: uppercase;
+            font-weight: 900;
+            &_block {
+                display: block;
+            }
+            &_bg {
+                background-color: $fifteen-color;
+                padding: 2px 5px;
+            }
+            &_lh {
+                line-height: 34px;
+            }
+        }
+        .title__orange {
+            color: $third-color;
+        }
+        .title__gray {
+            color: $twelve-color;
+        }
+        .title__white {
+            color: #ffffff;
+        }
+        .title__light-gray {
+            color: $lightGray-color;
+        }
+    }
+}
+.slider__photos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: calc(100% - 30px);
+    left: 20%;
+    right: 20%;
+    @media(max-width: 991px) {
+        left: 12%;
+        right: 12%;
+    }
+    @media(max-width: 575px) {
+        top: calc(100% - 20px);
+        left: 7%;
+        right: 7%;
+    }
+    .no-photo {
+        @include roboto;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 55px;
+        height: 55px;
+        border-radius: 100%;
+        border: 4px solid #ffffff;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 900;
+        color: #ffffff;
+        background-color: $third-color;
+        @media(max-width: 575px) {
+            width: 45px;
+            height: 45px;
+        }
+    }
+    .slider__photo {
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 55px;
+        height: 55px;
+        border-radius: 100%;
+        border: 2px solid #ffffff;
+        background-color: #ffffff;
+        overflow: hidden;
+        cursor: pointer;
+        @media(max-width: 575px) {
+            width: 45px;
+            height: 45px;
+        }
+        img {
+            position: absolute;
+            top: 0;
+        }
+        .img1 {
+            left: -22px;
+        }
+        .img2 {
+            left: -27px;
+            @media(max-width: 575px) {
+                left: -30px;
+            }
+        }
+        .img3 {
+            left: 0;
+        }
+        .img4 {
+            left: 0;
+        }
+        &:nth-child(n):not(:first-child) {
+            margin-left: 45px;
+            @media(max-width: 767px) {
+                margin-left: 15px;
+            }
+        }
+    }
+}

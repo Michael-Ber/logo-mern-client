@@ -1,0 +1,105 @@
+@import '../../../../assets/variables';
+@import '../../../../assets/mixins';
+
+.about {
+    margin-top: 30px;
+
+    &__wrapper {
+        position: relative;
+        padding: 33px 57px 22px 32px;
+        background: url('../../../../assets/img/main/about_bg.jpg') center center/cover no-repeat;
+        @media(max-width: 575px) {
+            padding: 33px 32px 22px 32px;
+        }
+    
+    }
+    &__title {
+        @include opensans;
+        font-size: 30px;
+        line-height: 1.2;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.025em;
+        color: $twenty-color;
+    }
+    &__img {
+        float: right;
+        position: absolute;
+        bottom: -123px;
+        right: 0;
+        @media(max-width: 575px) {
+            display: none;
+        }
+    }
+    &__text {
+        @include roboto;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-top: 33px;
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: 400;
+        letter-spacing: 0.025em;
+        color: #ffffff;
+        @media(max-width: 575px) {
+            display: block;
+        }
+    }
+    &__left {
+        width: calc(51% - 30px);
+        .left__first-paragraph {
+            margin-bottom: 20px;
+        }
+        @media(max-width: 575px) {
+            width: 100%;
+        }
+    }
+    &__polygon {
+        display: none;
+        width: 255px;
+        height: 180px;
+        text-align: right;
+        margin-right: -57px;
+        shape-outside: polygon(72% 0%, 5% 56%, 0 100%, 100% 100%, 100% 0%);
+        clip-path: polygon(72% 0%, 5% 56%, 0 100%, 100% 100%, 100% 0%);
+        float: right;
+        @media(min-width: 992px) {
+            height: 190px;
+        }
+        &_xl {
+            @media(min-width: 992px) {
+                display: block;
+            }
+        }
+        &_lg {
+            @media(max-width: 991px) and (min-width: 768px) {
+                display: block;
+            }
+        }
+        &_md {
+            @media(max-width: 767px) and (min-width: 576px) {
+                display: block;
+                width: 145px;
+                height: 130px;
+            }
+        }
+    }
+    &__right {
+        width: calc(48% - 30px);
+        span {
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+        .right__paragraph {
+            &::before {
+                content: url('../../../../assets/icons/main/catalog_arrow.png');
+                margin-right: 17px;
+                margin-left: 7px; 
+            }
+        }
+        @media(max-width: 575px) {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,58 @@
+@import '../../../assets/variables';
+@import '../../../assets/mixins';
+
+.auth-page {
+    @include opensans;
+    text-align: center;
+    padding: 100px 0;
+    &__form {
+        margin-top: 50px;
+    }
+    &__input {
+        display: block;
+        margin: 0 auto;
+        width: 400px;
+        padding: 10px 0;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        border-bottom: 2px solid $sec-color;
+        & + & {
+            margin-top: 30px;
+        }
+    }
+    &__btns {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 400px;
+        margin: 70px auto 0 auto;
+    }
+    &__btn {
+        width: 150px;
+        border: none;
+        font-size: 18px;
+        padding: 15px 5px;
+        color: #000;
+        cursor: pointer;
+    }
+    &__message {
+        display: none;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+}
+.btn-submit {
+    background-color: $eight-color;
+    color: #fff;
+    &:hover {
+        background-color: darken($eight-color, 10%);
+    }
+}
+.btn-cancel {
+    background-color: $thirteen-color;
+    &:hover {
+        background-color: darken($thirteen-color, 10%);
+    }
+}
