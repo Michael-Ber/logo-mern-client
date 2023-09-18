@@ -20,21 +20,22 @@ import 'swiper/css';
 import "swiper/css/grid";
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { Spinner } from '../../../spinner/Spinner';
 
 export const MainPopular = () => {
 
     const dispatch = useDispatch();
 
-    const { goods } = useSelector(state => state.goodsSlice);
+    const { goods, status } = useSelector(state => state.goodsSlice);
     const { user } = useSelector(state => state.authSlice);
-    const { status } = useSelector(state => state.goodsSlice);
-
     const addHandler = async(id) => {
         if(user.cart.filter(item => item._id === id).length === 0) {
             await dispatch(addToCart({ goodId: id }));
             await dispatch(fetchMe());
         }
     }
+
+
 
     const popularToRender = goods && goods.map((item, i) => {
         return (
@@ -81,8 +82,10 @@ export const MainPopular = () => {
         <div className="popular__header">
             <div className="popular__title">Популярные товары</div>
         </div>
-        <Slider popularToRender={popularToRender} />
-                
+        {true ? 
+            <Spinner width="40px" height="40px" marginTop="180px"/> : 
+            <Slider popularToRender={popularToRender} />
+        }
     </div>
   )
 }
@@ -142,6 +145,7 @@ const Slider = ({popularToRender}) => {
             <div className="popular-arrow-next">
                 <img src={arrowRight} alt="" />
             </div>
+
         </div>
     )
 }
