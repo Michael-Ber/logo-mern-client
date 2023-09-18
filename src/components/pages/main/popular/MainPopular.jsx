@@ -82,7 +82,7 @@ export const MainPopular = () => {
         <div className="popular__header">
             <div className="popular__title">Популярные товары</div>
         </div>
-        {true ? 
+        {status === 'loading' ? 
             <Spinner width="40px" height="40px" marginTop="180px"/> : 
             <Slider popularToRender={popularToRender} />
         }
