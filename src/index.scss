@@ -11,19 +11,23 @@
 .container {
     max-width: 1140px;
     margin: 0 auto;
+
     &_about {
         overflow: unset;
     }
-    
+
     @media(max-width: 1199px) {
         max-width: 960px;
     }
+
     @media(max-width: 991px) {
         max-width: 720px;
     }
+
     @media(max-width: 767px) {
         max-width: 540px;
     }
+
     @media(max-width: 575px) {
         max-width: 100%;
     }
@@ -34,11 +38,13 @@ ul {
 }
 
 input[type='number'] {
+
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
         -webkit-appearance: none;
     }
 }
+
 input[type='number'],
 input[type="number"]:hover,
 input[type="number"]:focus {

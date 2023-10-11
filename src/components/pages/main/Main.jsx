@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './main.scss';
 
@@ -18,7 +18,7 @@ import { Good } from '../good/Good';
 
 const Main = () => {
 
-    
+
 
     return (
         <>
@@ -32,21 +32,21 @@ const Main = () => {
                         <div className="main__right">
                             <MainSearch />
                             <Routes>
-                                <Route path='/:id' element={<ErrorBoundary><Good /></ErrorBoundary>}/>
-                                <Route path='/cart' element={<ErrorBoundary><Cart /></ErrorBoundary>}/>
-                                <Route path="/" element={<ErrorBoundary><MainSlider /><MainPopular /></ErrorBoundary>}/>
-                                <Route path='*' element={<ErrorBoundary><Page404 /></ErrorBoundary>}/>  
+                                <Route path='/:id' element={<ErrorBoundary><Good /></ErrorBoundary>} />
+                                <Route path='/cart' element={<ErrorBoundary><Cart /></ErrorBoundary>} />
+                                <Route path="/" element={<ErrorBoundary><MainSlider /><MainPopular /></ErrorBoundary>} />
+                                <Route path='*' element={<ErrorBoundary><Page404 /></ErrorBoundary>} />
                             </Routes>
-                            
+
                         </div>
                     </div>
                 </div>
-            <MainSponsors />
-            </section>  
+                <MainSponsors />
+            </section>
             <MainAbout />
             <MainLinks />
         </>
-        
+
     )
 }
 
