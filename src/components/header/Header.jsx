@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './header.scss';
@@ -16,8 +16,21 @@ export const Header = () => {
 
     const dispatch = useDispatch();
 
+    const menuRef = useRef(null);
+
     const logoutHandler = () => {
         dispatch(logout());
+    }
+
+    const triggerBurger = () => {
+        if (menuRef.current.classList.contains('burger-menu_active')) {
+            menuRef.current.classList.remove('burger-menu_active')
+        } else {
+            menuRef.current.classList.add('burger-menu_active')
+        }
+    }
+    const closeBurger = () => {
+        menuRef.current.classList.remove('burger-menu_active');
     }
 
     return (
@@ -76,12 +89,12 @@ export const Header = () => {
                         </ul>
                     </div>
                     <div className="burger">
-                        <div className="burger-btn">
+                        <div onClick={triggerBurger} className="burger-btn">
                             <span className="burger-btn-line"></span>
                             <span className="burger-btn-line"></span>
                             <span className="burger-btn-line"></span>
                         </div>
-                        <div className="burger-menu">
+                        <div ref={menuRef} className="burger-menu">
                             <nav className="burger__nav burger__nav_sm">
                                 <ul className="burger__nav-list burger__nav-list_sm">
                                     <li className="burger__nav-item">
@@ -104,6 +117,7 @@ export const Header = () => {
                                     </li>
                                 </ul>
                             </nav>
+                            <div onClick={closeBurger} className="burger-menu__close">&#x2715;</div>
                         </div>
                     </div>
                 </div>
